@@ -1,31 +1,21 @@
 package yncrea.lab03.core.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
-//TODO annotate this entity
 @Entity
-public class Project {
-
-    public long id;
+public class Project extends GenericEntity {
 
     private String name;
 
+    @ManyToOne
     private Company company;
 
+    @ManyToOne
     private Customer customer;
 
 
     public Project() {
-    }
-
-
-    public long getId() {
-        return id;
-    }
-
-
-    public void setId(final long idValue) {
-        id = idValue;
     }
 
 

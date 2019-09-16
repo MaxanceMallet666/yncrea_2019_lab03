@@ -2,32 +2,25 @@ package yncrea.lab03.core.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import java.util.List;
 
-//TODO annotate this entity
+@Entity
 @JsonIgnoreProperties(value = { "projects" })
-public class Customer {
-
-    public long id;
+public class Customer extends GenericEntity {
 
     private String name;
 
+    @OneToMany(mappedBy = "customer")
     private List<Project> projects;
 
+    @ManyToOne
     private BusinessType businessType;
 
 
     public Customer() {
-    }
-
-
-    public long getId() {
-        return id;
-    }
-
-
-    public void setId(final long idValue) {
-        id = idValue;
     }
 
 
